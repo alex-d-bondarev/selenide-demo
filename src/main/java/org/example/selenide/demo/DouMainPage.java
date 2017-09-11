@@ -4,7 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DemoDouMainPage {
+public class DouMainPage {
     @FindBy(name = "q")
     WebElement searchInput;
 

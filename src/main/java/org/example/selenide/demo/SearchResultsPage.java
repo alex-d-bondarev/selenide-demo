@@ -1,16 +1,15 @@
-package org.example.selenide.seleniumOnly;
+package org.example.selenide.demo;
 
 import org.example.selenide.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
 
-public class SeleniumSearchResultsPage extends BasePage{
+public class SearchResultsPage extends BasePage{
     @FindBy(xpath = ".//div[@class='gsc-result-info']")
     WebElement resultsInfo;
 
@@ -29,7 +28,7 @@ public class SeleniumSearchResultsPage extends BasePage{
     ///////////////////////////
     // Wait for many results //
     ///////////////////////////
-
+    
     private void myUglyWaitNonEmptyList(){
         for(int i = 10; i > 0 && summaryResults.size() == 0; i--){
             try {
