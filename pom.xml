@@ -9,69 +9,54 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<!-- AutomataLib requires Java 8 -->
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		
-		<!-- Version of LearnLib to use -->
-		<learnlib.version>0.12.0</learnlib.version>
+		<slf4j.version>1.7.12</slf4j.version>
+		<selenium-java.version>3.4.0</selenium-java.version>
+		<selenium-server.version>3.4.0</selenium-server.version>
+		<testNG.version>6.8</testNG.version>
 	</properties>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>de.learnlib</groupId>
-				<artifactId>learnlib-parent</artifactId>
-				<version>${learnlib.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
 	<dependencies>
+		<!--Selenium-->
 		<dependency>
-			<groupId>de.learnlib</groupId>
-			<artifactId>learnlib-core</artifactId>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>${selenium-server.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>de.learnlib</groupId>
-			<artifactId>learnlib-counterexamples</artifactId>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium-java.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!--TestNG-->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testNG.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!--Selenide-->
+		<dependency>
+			<groupId>com.codeborne</groupId>
+			<artifactId>selenide</artifactId>
+			<version>4.5.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!--Logs-->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>de.learnlib</groupId>
-			<artifactId>learnlib-basic-eqtests</artifactId>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>de.learnlib</groupId>
-			<artifactId>learnlib-simulator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.learnlib</groupId>
-			<artifactId>learnlib-cache</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.learnlib</groupId>
-			<artifactId>learnlib-lstar-generic</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>net.automatalib</groupId>
-			<artifactId>automata-commons-dotutil</artifactId>
+			<groupId>com.codeborne</groupId>
+			<artifactId>selenide</artifactId>
+			<version>4.5.1</version>
 		</dependency>
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 </project>
