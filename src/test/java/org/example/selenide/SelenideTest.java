@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.*;
+
 
 public class SelenideTest {
 
@@ -19,9 +21,9 @@ public class SelenideTest {
         String douMainPage = "https://dou.ua/";
         String searchText = "Selenide";
 
-        driver = new SelenideDriver().getDriver();
+        SelenideDriver.setDriver();
 
-        driver.get(douMainPage);
+        open(douMainPage);
         douMain.searchFor(searchText);
         Assert.assertTrue(douSearchResults.getFirstResultSummary().contains(searchText),
                 searchText + " should be shown in first result summary");

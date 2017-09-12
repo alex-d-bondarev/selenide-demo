@@ -17,9 +17,10 @@ public class SearchResultsPage extends BasePage{
     List<WebElement> summaryResults;
 
     public String getFirstResultSummary(){
-        wait.until(myPrettyWaitNonEmptyList(summaryResults));
+        int minimumAmountOfSearchResults = 3;
+        wait.until(prettyListSizeGreaterThan(summaryResults, minimumAmountOfSearchResults));
         for (WebElement result : summaryResults) {
-            if (!result.getText().equals(""))
+            if (result.isDisplayed())
                 return result.getText();
         }
         return null;
@@ -29,8 +30,8 @@ public class SearchResultsPage extends BasePage{
     // Wait for many results //
     ///////////////////////////
     
-    private void myUglyWaitNonEmptyList(){
-        for(int i = 10; i > 0 && summaryResults.size() == 0; i--){
+    private void uglyListSizeGreaterThan(int size){
+        for(int i = 10; i > 0 && summaryResults.size() >- size; i--){
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
@@ -39,13 +40,12 @@ public class SearchResultsPage extends BasePage{
         }
     }
 
-    private static ExpectedCondition<List<WebElement>> myPrettyWaitNonEmptyList(
-            final List<WebElement> elements){
+    private static ExpectedCondition<List<WebElement>> prettyListSizeGreaterThan(
+            final List<WebElement> elements, final int size){
         return new ExpectedCondition<List<WebElement>>() {
 
             public List<WebElement> apply(WebDriver driver) {
-                int minimumSearchResults = 3;
-                return elements.size() >= minimumSearchResults ? elements : null;
+                return elements.size() >= size ? elements : null;
             }
 
             @Override

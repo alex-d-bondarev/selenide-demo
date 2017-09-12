@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class DemoTest extends BaseTest {
 
     @Test
-    public void seleniumDemo(){
+    public void presentationDemo(){
         String douMainPage = "https://dou.ua/";
         String searchText = "Selenide";
 

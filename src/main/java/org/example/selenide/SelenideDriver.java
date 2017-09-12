@@ -1,18 +1,15 @@
 package org.example.selenide;
 
-import com.codeborne.selenide.WebDriverRunner;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import com.codeborne.selenide.Configuration;
 
 public class SelenideDriver {
-    public WebDriver getDriver(){
-        String driverProperty = "webdriver.gecko.driver";
-        String path = "/Users/Alex/GitHub/selenide-demo/selenide-demo/drivers/geckodriver";
 
+    static final String driverProperty = "webdriver.gecko.driver";
+    static final String path = "/Users/Alex/GitHub/selenide-demo/selenide-demo/drivers/geckodriver";
+    static final String browser = "marionette";
+
+    public static void setDriver(){
+        Configuration.browser = browser;
         System.setProperty(driverProperty, path);
-        WebDriver driver = new FirefoxDriver();
-        WebDriverRunner.setWebDriver(driver);
-
-        return driver;
     }
 }
