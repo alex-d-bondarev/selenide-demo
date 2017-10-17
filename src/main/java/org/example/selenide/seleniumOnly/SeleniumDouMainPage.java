@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class SeleniumDouMainPage {
     @FindBy(name = "q")
-    WebElement searchInput;
+    private WebElement searchInput;
+
 
     public void searchFor(String value){
         searchInput.sendKeys(value);

@@ -9,38 +9,34 @@
 	<packaging>jar</packaging>
 
 	<properties>
+		<java.source.version>1.8</java.source.version>
+		<java.target.version>1.8</java.target.version>
+		<maven-compiler.version>3.6.1</maven-compiler.version>
+		<selenide.version>4.6</selenide.version>
+		<selenium-java.version>3.5.3</selenium-java.version>
+		<selenium-server.version>3.5.3</selenium-server.version>
 		<slf4j.version>1.7.12</slf4j.version>
-		<selenium-java.version>3.4.0</selenium-java.version>
-		<selenium-server.version>3.4.0</selenium-server.version>
 		<testNG.version>6.8</testNG.version>
 	</properties>
 
 	<dependencies>
-		<!--Selenium-->
+		<!--Selenide-->
 		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-server</artifactId>
-			<version>${selenium-server.version}</version>
+			<groupId>com.codeborne</groupId>
+			<artifactId>selenide</artifactId>
+			<version>${selenide.version}</version>
 		</dependency>
+		<!--Selenium-->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium-java.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<!--TestNG-->
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>${testNG.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<!--Selenide-->
-		<dependency>
-			<groupId>com.codeborne</groupId>
-			<artifactId>selenide</artifactId>
-			<version>4.5.1</version>
-			<scope>test</scope>
 		</dependency>
 		<!--Logs-->
 		<dependency>
@@ -53,10 +49,20 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.codeborne</groupId>
-			<artifactId>selenide</artifactId>
-			<version>4.5.1</version>
-		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler.version}</version>
+				<configuration>
+					<source>${java.source.version}</source>
+					<target>${java.target.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
