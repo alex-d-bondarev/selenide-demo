@@ -3,11 +3,9 @@ package org.example.selenide;
 import com.codeborne.selenide.Configuration;
 
 public class SelenideDriver {
-    private static final String BROWSER = "marionette";
 
-
-    public static void setDriver(){
+    public static void run(){
+        String BROWSER = "marionette";
         Configuration.browser = BROWSER;
-        new FirefoxSetUp().run();
     }
 }

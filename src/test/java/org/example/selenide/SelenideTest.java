@@ -17,7 +17,7 @@ public class SelenideTest {
         SelenideDouMainPage douMain = new SelenideDouMainPage();
         SelenideSearchResultsPage douSearchResults = new SelenideSearchResultsPage();
 
-        SelenideDriver.setDriver();
+        SelenideDriver.run();
 
         open(douMainPage);
         douMain.searchFor(searchText);

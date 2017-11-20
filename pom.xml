@@ -12,9 +12,9 @@
 		<java.source.version>1.8</java.source.version>
 		<java.target.version>1.8</java.target.version>
 		<maven-compiler.version>3.6.1</maven-compiler.version>
-		<selenide.version>4.6</selenide.version>
-		<selenium-java.version>3.5.3</selenium-java.version>
-		<selenium-server.version>3.5.3</selenium-server.version>
+		<selenide.version>4.8</selenide.version>
+		<selenium-java.version>3.7.1</selenium-java.version>
+		<selenium-server.version>3.7.1</selenium-server.version>
 		<slf4j.version>1.7.12</slf4j.version>
 		<testNG.version>6.8</testNG.version>
 	</properties>
