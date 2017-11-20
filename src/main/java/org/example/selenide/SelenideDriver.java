@@ -5,7 +5,6 @@ import com.codeborne.selenide.Configuration;
 public class SelenideDriver {
 
     public static void run(){
-        String BROWSER = "marionette";
-        Configuration.browser = BROWSER;
+        Configuration.browser = "marionette";
     }
 }
