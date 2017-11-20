@@ -16,10 +16,10 @@ public class SeleniumSearchResultsPage{
 
 
     public String getFirstResultSummary(){
-        int minimumAmountOfSearchResults = 3;
+        int noVisibleResults = 2;
         WebDriverWait wait = SeleniumDriver.getInstance().getWait();
 
-        wait.until(prettyListSizeGreaterThan(summaryResults, minimumAmountOfSearchResults));
+        wait.until(listSizeGreaterThan(summaryResults, noVisibleResults));
         for (WebElement result : summaryResults) {
             if (result.isDisplayed())
                 return result.getText();
@@ -27,10 +27,24 @@ public class SeleniumSearchResultsPage{
         return null;
     }
 
+    private static Function<WebDriver, Boolean> listSizeGreaterThan(
+            final List<WebElement> elements, final int size){
+        return new Function<WebDriver, Boolean>() {
 
-    ////////////////////
-    // Custom waiters //
-    ////////////////////
+            @Override
+            public Boolean apply(WebDriver driver) {
+                elements.forEach(el -> {
+                    if(!el.isDisplayed()) elements.remove(el);
+                });
+                return elements.size() > size;
+            }
+
+            @Override
+            public String toString() {
+                return "non empty list of " + elements;
+            }
+        };
+    }
 
     private void uglyListSizeGreaterThan(int size){
         for(int i = 10; i > 0 && summaryResults.size() >- size; i--){
@@ -40,25 +54,5 @@ public class SeleniumSearchResultsPage{
                 // Do nothing for now
             }
         }
-    }
-
-
-    private static Function<WebDriver, Boolean> prettyListSizeGreaterThan(
-            final List<WebElement> elements, final int size){
-        return new Function<WebDriver, Boolean>() {
-
-            @Override
-            public Boolean apply(WebDriver driver) {
-                elements.forEach(el -> {
-                    if(!el.isDisplayed()) elements.remove(el);
-                });
-                return elements.size() >= size;
-            }
-
-            @Override
-            public String toString() {
-                return "non empty list of " + elements;
-            }
-        };
     }
 }

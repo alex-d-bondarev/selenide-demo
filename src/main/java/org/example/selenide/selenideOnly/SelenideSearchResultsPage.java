@@ -12,8 +12,8 @@ public class SelenideSearchResultsPage {
 
 
     public String getFirstResultSummary(){
-        int noResults = 2;
-        return $$(summaryResults).shouldHave(sizeGreaterThan(noResults))
+        int noVisibleResults = 2;
+        return $$(summaryResults).shouldHave(sizeGreaterThan(noVisibleResults))
                 .filter(Condition.visible).first().getText();
     }
 }
