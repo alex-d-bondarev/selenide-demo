@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 public class SeleniumTest{
 
     @Test
@@ -20,7 +19,8 @@ public class SeleniumTest{
         SeleniumDouMainPage douMain = PageFactory.initElements(driver, SeleniumDouMainPage.class);
         douMain.searchFor(searchText);
         SeleniumSearchResultsPage douSearchResults = PageFactory.initElements(driver, SeleniumSearchResultsPage.class);
-        Assert.assertTrue(douSearchResults.getFirstResultSummary().contains(searchText),
+        Assert.assertTrue(douSearchResults.getFirstResultSummary()
+                        .contains(searchText),
                 searchText + " should be shown in first result summary");
 
         driver.close();

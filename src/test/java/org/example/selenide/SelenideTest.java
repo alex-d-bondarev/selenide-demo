@@ -21,7 +21,8 @@ public class SelenideTest {
 
         open(douMainPage);
         douMain.searchFor(searchText);
-        Assert.assertTrue(douSearchResults.getFirstResultSummary().contains(searchText),
+        Assert.assertTrue(douSearchResults.getFirstResultSummary()
+                        .contains(searchText),
                 searchText + " should be shown in first result summary");
     }
 }

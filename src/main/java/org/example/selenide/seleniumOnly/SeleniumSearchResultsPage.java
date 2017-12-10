@@ -14,7 +14,6 @@ public class SeleniumSearchResultsPage{
     @FindBy(className = "gs-title")
     private List<WebElement> summaryResults;
 
-
     public String getFirstResultSummary(){
         int noVisibleResults = 2;
         WebDriverWait wait = SeleniumDriver.getInstance().getWait();
