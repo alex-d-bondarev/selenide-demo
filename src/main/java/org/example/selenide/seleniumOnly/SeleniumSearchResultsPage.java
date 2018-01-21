@@ -1,6 +1,5 @@
 package org.example.selenide.seleniumOnly;
 
-import org.example.selenide.SeleniumDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,9 +13,8 @@ public class SeleniumSearchResultsPage{
     @FindBy(className = "gs-title")
     private List<WebElement> summaryResults;
 
-    public String getFirstResultSummary(){
+    public String getFirstResultSummary(WebDriverWait wait){
         int noVisibleResults = 2;
-        WebDriverWait wait = SeleniumDriver.getInstance().getWait();
 
         wait.until(listSizeGreaterThan(summaryResults, noVisibleResults));
         for (WebElement result : summaryResults) {
